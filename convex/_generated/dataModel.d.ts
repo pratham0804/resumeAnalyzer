@@ -60,3 +60,5 @@ export type Id<TableName extends TableNames | SystemTableNames> =
 export type DataModel = DataModelFromSchemaDefinition<typeof schema>;
 
 Updated on 2025-05-16 10:30:50 - Change #6202
+
+Updated on 2025-05-16 10:30:53 - Change #2575
