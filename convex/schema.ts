@@ -1,0 +1,33 @@
+import { defineSchema, defineTable } from "convex/server";
+import { v } from "convex/values";
+import { authTables } from "@convex-dev/auth/server";
+
+const applicationTables = {
+  resumes: defineTable({
+    userId: v.id("users"),
+    fileName: v.string(),
+    fileId: v.id("_storage"),
+    content: v.string(),
+    createdAt: v.number(),
+    userEmail: v.string(),
+  }).index("by_user", ["userId"]),
+  
+  analyses: defineTable({
+    resumeId: v.id("resumes"),
+    userId: v.id("users"),
+    jobDescription: v.string(),
+    matchedSkills: v.array(v.string()),
+    missingSkills: v.array(v.string()),
+    suggestions: v.array(v.string()),
+    score: v.number(),
+    createdAt: v.number(),
+    userEmail: v.string(),
+  }).index("by_resume", ["resumeId"])
+};
+
+export default defineSchema({
+  ...authTables,
+  ...applicationTables,
+});
+
+Updated on 2025-05-16 10:30:48 - Change #2757
