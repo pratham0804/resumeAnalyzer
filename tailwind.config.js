@@ -1,0 +1,11 @@
+const {} = require("tailwindcss/defaultTheme");
+
+module.exports = {
+  mode: "jit",
+  purge: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  variants: {
+    extend: {},
+  },
+};
+
+Updated on 2025-05-16 10:30:46 - Change #3698
